@@ -1,17 +1,17 @@
 ##########################################################################
-############################# Conversion #################################
-############################## Binaire ###################################
+############################# Convert to #################################
+############################## Binary ###################################
 ##########################################################################
-def intToBin(val):
+def intToBin(variable):
     
-    tabBin = [int(ord(i)) for i in val]
+    tabBin = [int(ord(i)) for i in variable]
     binaire = [bin(i)[2:] for i in tabBin]
     binary = ' '.join(str(i) for i in binaire)
     
     return binary
 
-def intTohex(val):
-    tabHex = [int(ord(i)) for i in val]
+def intTohex(variable):
+    tabHex = [int(ord(i)) for i in variable]
     hexadecimal = [format(i,'X') for i in tabHex]
     hexa = ' '.join(str(i) for i in hexadecimal)
     return hexa
@@ -20,7 +20,7 @@ def intTohex(val):
 
 ##########################################################################
 ############################# Graphique #################################
-############################## Binaire ###################################
+############################## Binary ###################################
 ############################### HEXA ####################################
 
 from tkinter import *
