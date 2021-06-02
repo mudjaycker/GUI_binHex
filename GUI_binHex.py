@@ -2,7 +2,7 @@
 ############################# Convert to #################################
 ############################## Binary ###################################
 ##########################################################################
-def intToBin(variable):
+def varToBin(variable):
     
     tabBin = [int(ord(i)) for i in variable]
     binaire = [bin(i)[2:] for i in tabBin]
@@ -10,7 +10,7 @@ def intToBin(variable):
     
     return binary
 
-def intTohex(variable):
+def VarToHex(variable):
     tabHex = [int(ord(i)) for i in variable]
     hexadecimal = [format(i,'X') for i in tabHex]
     hexa = ' '.join(str(i) for i in hexadecimal)
@@ -28,8 +28,8 @@ from tkinter import *
 def hexBinUpdate(*args):
         toConvert = valueInput.get()
         
-        binOutput.set(intToBin(toConvert))
-        hexOutput.set(intTohex(toConvert))
+        binOutput.set(varToBin(toConvert))
+        hexOutput.set(VarToHex(toConvert))
         if toConvert == "":
             binOutput.set("")
             hexOutput.set("")
@@ -82,14 +82,14 @@ from tkinter import messagebox
 def copyBin():
     value = valueInput.get()
     root.clipboard_clear()
-    root.clipboard_append(intToBin(value))
-    messagebox.showinfo("Binary copied!","{} copied".format(intToBin(value)))
+    root.clipboard_append(varToBin(value))
+    messagebox.showinfo("Binary copied!","{} copied".format(varToBin(value)))
 
 def copyHex():
     value = valueInput.get()
     root.clipboard_clear()
-    root.clipboard_append(intTohex(value))
-    messagebox.showinfo("Hexadecimal copied!","{} copied".format(intTohex(value)))
+    root.clipboard_append(VarToHex(value))
+    messagebox.showinfo("Hexadecimal copied!","{} copied".format(VarToHex(value)))
 
 
 
