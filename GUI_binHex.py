@@ -24,8 +24,6 @@ def intTohex(variable):
 ############################### HEXA ####################################
 
 from tkinter import *
-from tkinter import messagebox
-
 ############################## Fonctions d'ecriture ###################################
 def hexBinUpdate(*args):
         toConvert = valueInput.get()
@@ -78,23 +76,21 @@ labelHex.place(y=labHexPos,x=1)
 
 
 
-################### Fonctions pour copier ######################
+################### Fonctions to copy ######################
+from tkinter import messagebox
 
 def copyBin():
     value = valueInput.get()
     root.clipboard_clear()
     root.clipboard_append(intToBin(value))
-    messagebox.showinfo(f"{intToBin(value)} copied")
+    messagebox.showinfo("Binary copied!","{} copied".format(intToBin(value)))
 
 def copyHex():
-    try:
-        value = valueInput.get()
-        root.clipboard_clear()
-        root.clipboard_append(intTohex(value))
-        messagebox.showinfo(f"{intTohex(value)} copied")
-    except:
-        binOutput.set("")
-        hexOutput.set("")
+    value = valueInput.get()
+    root.clipboard_clear()
+    root.clipboard_append(intTohex(value))
+    messagebox.showinfo("Hexadecimal copied!","{} copied".format(intTohex(value)))
+
 
 
 
