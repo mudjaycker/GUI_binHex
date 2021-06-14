@@ -24,7 +24,7 @@ def VarToHex(variable):
 ############################### HEXA ####################################
 
 from tkinter import *
-############################## Fonctions d'ecriture ###################################
+############################## Fonctions de conversion ###################################
 def hexBinUpdate(*args):
         toConvert = valueInput.get()
         
@@ -34,37 +34,33 @@ def hexBinUpdate(*args):
             binOutput.set("")
             hexOutput.set("")
 
+def onCenter(root:str, W:int, H:int):
+    screenX = root.winfo_screenwidth()
+    scrennY = root.winfo_screenheight()
+
+    positionX = (screenX//2) - W//2
+    positionY = (scrennY//2) - H//2
+    geo = (f'{W}x{H}+{positionX}+{positionY}')
+
+    return root.geometry(geo)
 
 root = Tk()
-W = root.winfo_screenwidth()//2
-H = root.winfo_screenheight()//2
-
-
-screenX = root.winfo_screenwidth()
-windowX = W
-scrennY = root.winfo_screenheight()
-windowY = H
-
-
-positionX = (screenX//2) - (windowX//2)
-positionY = (scrennY//2) - (windowY//2)
-
-
-geo = (f'{windowX}x{windowY}+{positionX}+{positionY}')
-root.geometry(geo)
-root.title("Convertisseur Binaire et Hexadecimale")
+W= 760
+H = 365
+onCenter(root, W, H)
 root.resizable(False,False)
+
+
 
 valueInput = StringVar()
 valueInput.trace('w',hexBinUpdate)
-entryBin = Entry(root,width=80,textvariable=valueInput).place(y=80,x=15)
-#okButt = Button(root,width=5,height=5,bg='red',command=hexBinUpdate).pack()
+entry = Entry(root,width=80,textvariable=valueInput).place(y=80,x=50)
 
 labBinPos = W/3.415
 binOutput = StringVar()
 labelBin  = Label(root,bg="#deb887",width=80,textvariable=binOutput)
 labelBin.config(font=('Andika',11))
-labelBin.place(y=labBinPos,x=1)
+labelBin.place(y=labBinPos,x=15)
 
 
 labHexPos = W/2.732
@@ -72,7 +68,7 @@ labHexPos = W/2.732
 hexOutput = StringVar()
 labelHex = Label(root,bg="#a9a9a9",width=80,textvariable=hexOutput)
 labelHex.config(font=('Andika',11))
-labelHex.place(y=labHexPos,x=1)
+labelHex.place(y=labHexPos,x=15)
 
 
 
@@ -94,12 +90,12 @@ def copyHex():
 
 
 
-butY=int(H/(H/300))
+butY=int(H/(H/310))
 but = int(W/(W/20))
 butBin = Button(root,width=2,height=1,bg='#deb887',command=copyBin,
                 text="copy").place(y=butY,x=but)
 
-butX=int(W/(W/600))
+butX=int(W/(W/650))
 butHex = Button(root,width=2,height=1,bg='#a9a9a9',command=copyHex,
                 text="copy").place(y=butY, x=butX)
 
